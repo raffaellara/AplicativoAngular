@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+	<head>	
+		<meta charset="UTF-8">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	</head>
+<body ng-controller="IndexCtrl as vm">
+
+	<h1>Tickets abertos</h1>
+
+	<ul>
+		<li ng-repeat="ticket in vm.tickets">
+			<h2>{{ ticket.title }}</h2>
+			<p>{{ ticket.desc }}</p>
+			<span>{{ ticket.created_at }}</span>
+		</li>
+	</ul>
+
+	<hr>
+
+	<form>
+		<h3>Adicionar novo ticket</h3>
+		<div>
+			<label for="">Título</label>
+			<br>
+			<input type="text" ng-model="vm.ticket.title">
+		</div>
+		<br><br>
+		<div>
+			<label for="">Descrição</label>
+			<br>
+			<textarea ng-model="vm.ticket.desc"></textarea>
+		</div>
+		<br>
+		<button ng-click="vm.save()">Adicionar</button>
+	</form>
+	
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/controller.js"></script>
+</body>
+</html>
